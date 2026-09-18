@@ -1,0 +1,257 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+\newtheorem{ly}[theorem2]{Lưu ý}
+\newtheorem{kn}[theorem2]{Khái niệm}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	\begin{titlepage}
+		\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+			\draw[black,line width=3pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=2.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=2.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+			
+			\draw[black,line width=1pt] ([xshift=-1.7cm,yshift=-2.2cm]current page.north east) coordinate (A)--([xshift=2.7cm,yshift=-2.2cm]current page.north west) coordinate(B)--([xshift=2.7cm,yshift=2.2cm]current page.south west) coordinate (C)--([xshift=-1.7cm,yshift=2.2cm]current page.south east) coordinate(D)--cycle;
+			
+		\end{tikzpicture}
+		\begin{center}
+			\vspace{-1cm}\textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM, ĐẠI HỌC HUẾ}
+			
+			\vspace{7pt}
+			\bf\underline{KHOA TOÁN HỌC}
+		\end{center}
+		\vspace{10pt}
+        \begin{center}
+        \includegraphics[width=0.4\textwidth]{Hinh.jpg}
+        \end{center}
+		\begin{center}
+			
+			\vspace{2cm}
+			\fontsize{13pt}{13pt}\selectfont 
+			\textbf{TIỂU LUẬN TÍCH HỢP CÔNG NGHỆ THÔNG TIN TRONG DẠY HỌC TOÁN} 
+			
+			\vspace{10pt}
+			
+		\end{center}
+		\vspace{1cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\bf\fontsize{15pt}{19}\selectfont ĐỒ THỊ HÀM SỐ\\TRONG CÁC TÌNH HUỐNG THỰC TẾ
+		\end{center}	
+		
+		\vspace{1.5cm}
+		\hspace{-0.6cm}\begin{tabular}{cc}{\fontsize{13pt}{16}\selectfont Giảng viên hướng dẫn}&\hspace{1cm}{\fontsize{12pt}{16}\selectfont Sinh viên thực hiện}\\
+			\hspace{-0.6cm}\bf\fontsize{13pt}{16}\selectfont TS NGUYỄN ĐĂNG MINH PHÚC&\hspace{1cm}{\bf\fontsize{12pt}{16}\selectfont NGUYỄN THỊ THANH HÀ}\\ 
+			&\hspace{1cm}{\bf\fontsize{13pt}{16}\selectfont MSSV: 23S1010008}
+		\end{tabular}
+		\vfill
+		\centerline {\bf Huế, 09/2026}
+	\end{titlepage}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	
+	
+	\begin{titlepage}
+		\centerline{ \bf TRƯỜNG ĐẠI HỌC SƯ PHẠM, ĐẠI HỌC HUẾ}
+		\centerline{\bf\underline{KHOA TOÁN HỌC}}
+		%\centerline{\bf KHOA TOÁN }
+		\vspace*{3.0cm}
+		\vspace*{3cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\bf\fontsize{17pt}{19}\selectfont ĐỒ THỊ HÀM SỐ TRONG CÁC TÌNH HUỐNG THỰC TẾ
+		\end{center}	
+		\vspace*{1cm}
+		
+		\vspace*{2.5cm}
+		
+		\centerline{\bf\fontsize{15pt}{16}\selectfont  TIỂU LUẬN TÍCH HỢP CNTT TRONG DẠY HỌC TOÁN}
+		\vspace*{1cm}
+		
+		\center{ Cán bộ hướng dẫn khoa học} 
+		\centerline{\bf\fontsize{14pt}{16}\selectfont {TS NGUYỄN ĐĂNG MINH PHÚC}}
+		
+		%\hspace{8cm}\parbox{7cm}{}
+		%\vspace*{2.5cm}
+		\vfill
+		
+		\centerline{\bf Huế, 09/2026}
+	\end{titlepage}
+	\newpage
+	\newpage
+	
+	
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	%\addcontentsline{toc}{section}{{\bf Mục lục\rm }}
+	%\cleardoublepage
+	
+	%{\protect\thispagestyle{empty}}
+	%%%%%%%%%%%%%%
+	%\include{Loicamdoan}
+	%\pagenumbering{arabic}
+	% \pagestyle{headings}
+	\newpage
+	\newpage
+	\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+		\if@mainmatter
+		\refstepcounter{chapter}%
+		\typeout{\@chapapp\space\thechapter.}%
+		\addcontentsline{toc}{chapter}%
+		{\bf  Chương \protect\numberline{\thechapter. } #1}%
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\chaptermark{#1}%
+		\addtocontents{lof}{\protect\addvspace{10\p@}}%
+		\addtocontents{lot}{\protect\addvspace{10\p@}}%
+		\if@twocolumn
+		\@topnewpage[\@makechapterhead{#2}]%
+		\else
+		\@makechapterhead{#2}%
+		\@afterheading
+		\fi}
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	\tableofcontents
+	% Đây này
+	\pagestyle{plain}
+	\chapter*{LỜI CẢM ƠN}
+	\fontsize{13pt}{22pt} \selectfont
+        Em xin gửi lời cảm ơn chân thành và sâu sắc nhất đến TS. Nguyễn Đăng Minh Phúc, người đã trực tiếp hướng dẫn, tận tình chỉ bảo và định hướng nghiên cứu cho em trong suốt quá trình thực hiện bài tiểu luận với đề tài "Đồ thị hàm số trong các tình huống thực tế". Sự hướng dẫn tâm huyết và những ý kiến chuyên môn quý báu của Thầy là nền tảng quan trọng giúp em hoàn thành bài tiểu luận này.  
+        
+        Em cũng xin chân thành cảm ơn quý Thầy, Cô giáo trong Khoa Toán học - Trường Đại học Sư phạm, Đại học Huế đã truyền đạt những kiến thức chuyên môn vững chắc và tạo điều kiện thuận lợi cho em trong suốt quá trình học tập và nghiên cứu.  
+        
+        Đồng thời, em xin cảm ơn các bạn sinh viên đã luôn động viên, hỗ trợ và đóng góp ý kiến quý báu để em hoàn thành tốt đề tài. Mặc dù đã có nhiều cố gắng trong quá trình thực hiện, nhưng do kiến thức và kinh nghiệm thực tiễn của bản thân còn hạn chế nên bài tiểu luận khó tránh khỏi những thiếu sót. Em rất mong nhận được sự thông cảm và những ý kiến đóng góp, chỉ bảo quý báu từ quý Thầy, Cô và các bạn để bài tiểu luận được hoàn thiện hơn.
+	
+	\begin{flushright}
+		Huế, tháng 09 năm 2026
+		
+		\textit{Người thực hiện.}
+	\end{flushright}
+	
+	
+	
+	\addcontentsline{toc}{chapter}{LỜI CẢM ƠN}
+	
+	
+	%\chapter*{\huge MỞ ĐẦU}
+	%\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+	\chapter*{MỞ ĐẦU}
+	\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+
+           \section*{Lý do chọn đề tài} Trong Chương trình Giáo dục phổ thông 2018 môn Toán, định hướng đổi mới phương pháp dạy học tập trung vào việc phát triển năng lực toán học cho học sinh, đặc biệt là năng lực mô hình hóa toán học và năng lực giải quyết vấn đề thực tiễn. Toán học không chỉ dừng lại ở các lý thuyết hay công thức trừu tượng mà cần gắn liền với các tình huống thực tế sinh động.
+           
+           Khảo sát và vẽ đồ thị hàm số là một trong những nội dung trọng tâm của chương trình Giải tích lớp 12. Các công cụ giải tích như tính đơn điệu, cực trị, giá trị lớn nhất – giá trị nhỏ nhất, tiệm cận giúp học sinh hiểu sâu hơn về bản chất và hình dạng của đồ thị hàm số. Ngược lại, đồ thị hàm số cung cấp một hình ảnh trực quan, sinh động để mô hình hóa nhiều hiện tượng, bài toán tối ưu chi phí, diện tích, quỹ đạo chuyển động, quy hoạch trong thực tiễn. Xuất phát từ lý do trên, đề tài "Đồ thị hàm số trong các tình huống thực tế" được lựa chọn nghiên cứu nhằm khai thác ứng dụng của đồ thị hàm số trong dạy học Toán.   
+           
+           \section*{Mục đích nghiên cứu} Hệ thống hóa các kiến thức nền tảng giải tích liên quan đến hàm số và đồ thị hàm số (bậc hai, bậc ba, phân thức).  Xây dựng và phân tích hệ thống các bài toán thực tế ứng dụng đồ thị hàm số, đánh giá dưới góc độ sư phạm (nhận xét, ý tưởng giải, lưu ý và ưu/nhược điểm) nhằm phục vụ công tác dạy học.   
+           \section*{Đối tượng và phạm vi nghiên cứu}
+           \textbf{Đối tượng:} Ứng dụng của đồ thị các hàm số đa thức, hàm số phân thức và các hàm số khác trong việc giải quyết các bài toán thực tế.   
+           
+           \textbf{Phạm vi:} Các bài toán thực tế trong chương trình Toán THPT gắn với ứng dụng khảo sát và vẽ đồ thị hàm số.  
+           
+           \section*{ Cấu trúc của tiểu luận} 
+           Ngoài phần Lời cảm ơn, Mở đầu, Kết luận và Tài liệu tham khảo, tiểu luận được cấu trúc gồm 2 chương chính:   \textit{Chương 1: Kiến thức chuẩn bị} – Trình bày nền tảng lý thuyết về tính đơn điệu, cực trị, giá trị lớn nhất - giá trị nhỏ nhất, tiệm cận và quy trình khảo sát các dạng đồ thị hàm số cơ bản.   
+           
+           \textit{Chương 2:} Một số bài toán thực tế ứng dụng đồ thị hàm số – Xây dựng, phân tích lời giải và đưa ra các nhận xét, kết luận sư phạm đối với từng dạng bài toán thực tế sử dụng đồ thị hàm số đa thức, phân thức và các hàm số khác.   
+            
+           
+            Tuy đã cố gắng trong quá trình thực hiện nhưng do kiến thức và kinh nghiệm còn hạn chế nên tiểu luận khó tránh khỏi những thiếu sót. Tôi rất mong nhận được những ý kiến đóng góp của quý thầy cô và các bạn để nội dung tiểu luận được hoàn thiện hơn.
+
+	%%%%%%%%%%%%%%%%%%%%%% CHƯƠNG 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+   
+\end{document}
+
+    

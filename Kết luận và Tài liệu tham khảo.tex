@@ -1,0 +1,173 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+\newtheorem{ly}[theorem2]{Lưu ý}
+\newtheorem{kn}[theorem2]{Khái niệm}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	\begin{titlepage}
+		\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+			\draw[black,line width=3pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=2.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=2.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+			
+			\draw[black,line width=1pt] ([xshift=-1.7cm,yshift=-2.2cm]current page.north east) coordinate (A)--([xshift=2.7cm,yshift=-2.2cm]current page.north west) coordinate(B)--([xshift=2.7cm,yshift=2.2cm]current page.south west) coordinate (C)--([xshift=-1.7cm,yshift=2.2cm]current page.south east) coordinate(D)--cycle;
+			
+		\end{tikzpicture}
+		\begin{center}
+			\vspace{-1cm}\textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM, ĐẠI HỌC HUẾ}
+			
+			\vspace{7pt}
+			\bf\underline{KHOA TOÁN HỌC}
+		\end{center}
+		\vspace{10pt}
+        \begin{center}
+        \includegraphics[width=0.4\textwidth]{Hinh.jpg}
+        \end{center}
+		\begin{center}
+			
+			\vspace{2cm}
+			\fontsize{13pt}{13pt}\selectfont 
+			\textbf{TIỂU LUẬN TÍCH HỢP CÔNG NGHỆ THÔNG TIN TRONG DẠY HỌC TOÁN} 
+			
+			\vspace{10pt}
+			
+		\end{center}
+		\vspace{1cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\bf\fontsize{15pt}{19}\selectfont ĐỒ THỊ HÀM SỐ\\TRONG CÁC TÌNH HUỐNG THỰC TẾ
+		\end{center}	
+		
+		\vspace{1.5cm}
+		\hspace{-0.6cm}\begin{tabular}{cc}{\fontsize{13pt}{16}\selectfont Giảng viên hướng dẫn}&\hspace{1cm}{\fontsize{12pt}{16}\selectfont Sinh viên thực hiện}\\
+			\hspace{-0.6cm}\bf\fontsize{13pt}{16}\selectfont TS NGUYỄN ĐĂNG MINH PHÚC&\hspace{1cm}{\bf\fontsize{12pt}{16}\selectfont NGUYỄN THỊ THANH HÀ}\\ 
+			&\hspace{1cm}{\bf\fontsize{13pt}{16}\selectfont MSSV: 23S1010008}
+		\end{tabular}
+		\vfill
+		\centerline {\bf Huế, 09/2026}
+	\end{titlepage}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	
+    \chapter*{KẾT LUẬN}
+    Bài tiểu luận "Đồ thị hàm số trong các tình huống thực tế" đã hoàn thành các mục tiêu nghiên cứu đề ra, thu được một số kết quả chính như sau:   
+    
+    \textbf{Về mặt lý thuyết:} Đã hệ thống hóa bài bản các kiến thức chuẩn bị về hàm số và đồ thị hàm số, bao gồm tính đơn điệu, cực trị, giá trị lớn nhất – giá trị nhỏ nhất, đường tiệm cận và các bước khảo sát đồ thị các hàm số bậc hai, bậc ba, bậc nhất trên bậc nhất, bậc hai trên bậc nhất.   
+    
+    \textbf{Về mặt thực tiễn và sư phạm:} Đã tuyển chọn, xây dựng và phân tích chi tiết lời giải cho hệ thống các bài toán thực tế đa dạng (bài toán tối ưu chi phí, thiết kế kiến trúc, công viên, quỹ đạo đường bay, quy hoạch diện tích,...). Với mỗi bài toán, tiểu luận không chỉ đưa ra hướng dẫn giải chi tiết mà còn cung cấp các nhận xét, ý tưởng giải, lưu ý tính toán và đánh giá kết luận sư phạm (ưu điểm, nhược điểm). Điều này giúp làm rõ vai trò của công cụ đồ thị hàm số trong việc mô hình hóa toán học.   
+    
+    Kết quả nghiên cứu của tiểu luận có thể sử dụng làm tài liệu tham khảo cho sinh viên ngành Sư phạm Toán, giáo viên THPT trong việc thiết kế các bài học theo định hướng phát triển năng lực và tạo nguồn tư liệu bài tập thực tế phong phú cho học sinh.  
+    
+    Mặc dù đã đạt được những kết quả nhất định, song do thời gian và năng lực nghiên cứu còn hạn chế, tiểu luận chưa thể khai thác hết tất cả các tình huống thực tế phức hợp khác. Trong thời gian tới, đề tài có thể tiếp tục phát triển theo hướng bổ sung thêm các dạng bài toán thực tế nâng cao và tăng cường ứng dụng các phần mềm học tập (GeoGebra) để minh họa đồ thị trực quan hơn.
+
+  
+
+    \chapter*{\underline{TÀI LIỆU THAM KHẢO}}
+    \addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+    \noindent [1] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+
+    \noindent [2] Trần Nam Dũng (Tổng Chủ biên), Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [3] Hà Huy Khoái (Tổng Chủ biên), Cung Thế Anh, Trần Văn Tấn, Đặng Hùng Thắng (đồng Chủ biên), Lê Văn Cường, Trần Mạnh Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Phan Thanh Hồng, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [4] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Bài tập Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+    
+    \noindent [5] Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Bài tập Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [6] Cung Thế Anh, Trần Văn Tấn, Trần Mạnh Cường, Đặng Hùng Thắng, Lê Văn Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Bài tập Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [7] Đỗ Văn Đức, \textit{Hành trình chinh phục thực tế}, Nhà xuất bản Văn hóa Dân tộc.
+
+    \noindent [8] Đỗ Văn Đức (2025), \textit{Hành trình chinh phục Toán 12, Tập 1}, Nhà xuất bản Văn hóa Dân tộc.
+
+
+
+
+        
+\end{document}
+
+    
